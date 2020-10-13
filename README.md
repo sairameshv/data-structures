@@ -1,2 +1,2 @@
-# go-stack
-This repository refers to the stack(LIFO) data structure APIs implementation in Go
+# data-structures
+This repository refers to the Go implementation of few operations performed on data structures like LinkedList, Stack, Queue etc.
