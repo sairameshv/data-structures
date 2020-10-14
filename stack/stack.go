@@ -46,7 +46,7 @@ func(s *Stack) Push(data interface{}) {
 	s.length++
 }
 
-// Top refers to the data value that is stored on top of the stack
+// Top returns the data value that is stored on top node of the stack
 func(s * Stack) Top() interface{} {
 	if s.length == 0 {
 		return nil

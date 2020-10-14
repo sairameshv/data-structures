@@ -48,4 +48,4 @@ Push adds a new node to the existing stack
 ```go
 func (s *Stack) Top() interface{}
 ```
-Top refers to the data value that is stored on top of the stack
+Top returns the data value that is stored on top node of the stack
