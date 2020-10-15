@@ -53,3 +53,11 @@ func(s * Stack) Top() interface{} {
 	}
 	return s.top.data
 }
+
+// IsEmpty returns a true if the stack is empty and false otherwise.
+func(s *Stack) IsEmpty() bool {
+	if s.length == 0 {
+		return true
+	}
+	return false
+}

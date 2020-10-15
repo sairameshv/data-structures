@@ -115,21 +115,21 @@ func TestStack_Push(t *testing.T) {
 		data interface{}
 	}
 	// creating a test stack
-        testStack := NewStack()
-        // creating new fields
-        newfields := new(fields)
-        newfields.node = testStack.node
-        newfields.top = testStack.top
-        newfields.length = testStack.length
+	testStack := NewStack()
+	// creating new fields
+	newfields := new(fields)
+	newfields.node = testStack.node
+	newfields.top = testStack.top
+	newfields.length = testStack.length
 	// Pushing the data to the stack
-        testStack.Push("Random Data")
+	testStack.Push("Random Data")
 
 	tests := []struct {
 		name   string
 		fields fields
 		args   args
 		// want represents the length of the updated stack
-		want   int
+		want int
 	}{
 		{"Testcase-6", *newfields, args{"Random Data"}, testStack.Length()},
 	}
@@ -142,8 +142,8 @@ func TestStack_Push(t *testing.T) {
 			}
 			s.Push(tt.args.data)
 			if got := s.Length(); !reflect.DeepEqual(got, tt.want) {
-                                t.Errorf("Stack.Push() = %v, want %v", got, tt.want)
-                        }
+				t.Errorf("Stack.Push() = %v, want %v", got, tt.want)
+			}
 		})
 	}
 }
@@ -155,15 +155,15 @@ func TestStack_Top(t *testing.T) {
 		length int
 	}
 	// creating a test stack
-        testStack := NewStack()
+	testStack := NewStack()
 	testStack.Push("Random Data")
-        // creating new fields
-        newfields := new(fields)
-        newfields.node = testStack.node
-        newfields.top = testStack.top
-        newfields.length = testStack.length
-        // creating empty fields
-        emptyfields := new(fields)
+	// creating new fields
+	newfields := new(fields)
+	newfields.node = testStack.node
+	newfields.top = testStack.top
+	newfields.length = testStack.length
+	// creating empty fields
+	emptyfields := new(fields)
 
 	tests := []struct {
 		name   string
@@ -184,6 +184,45 @@ func TestStack_Top(t *testing.T) {
 			}
 			if got := s.Top(); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("Stack.Top() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestStack_IsEmpty(t *testing.T) {
+	type fields struct {
+		node   node
+		top    *node
+		length int
+	}
+	// creating a test stack
+	testStack := NewStack()
+	testStack.Push("Random Data")
+	// creating new fields
+	newfields := new(fields)
+	newfields.node = testStack.node
+	newfields.top = testStack.top
+	newfields.length = testStack.length
+	// creating empty fields
+	emptyfields := new(fields)
+
+	tests := []struct {
+		name   string
+		fields fields
+		want   bool
+	}{
+		{"Testcase-9", *emptyfields, true},
+		{"Testcase-10", *newfields, false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			s := &Stack{
+				node:   tt.fields.node,
+				top:    tt.fields.top,
+				length: tt.fields.length,
+			}
+			if got := s.IsEmpty(); got != tt.want {
+				t.Errorf("Stack.IsEmpty() = %v, want %v", got, tt.want)
 			}
 		})
 	}
