@@ -22,6 +22,13 @@ func NewStack() *Stack
 ```
 NewStack creates and returns a Stack variable
 
+#### func (*Stack) IsEmpty
+
+```go
+func (s *Stack) IsEmpty() bool
+```
+IsEmpty returns a true if the stack is empty and false otherwise.
+
 #### func (*Stack) Length
 
 ```go
