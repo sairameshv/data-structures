@@ -26,7 +26,7 @@ func TestNewStack(t *testing.T) {
 
 func TestStack_Length(t *testing.T) {
 	type fields struct {
-		node   node
+		nodes  []node
 		top    *node
 		length int
 	}
@@ -34,7 +34,7 @@ func TestStack_Length(t *testing.T) {
 	testStack := NewStack()
 	testStack.Push("Random Data")
 	newfields := new(fields)
-	newfields.node = testStack.node
+	newfields.nodes = testStack.nodes
 	newfields.top = testStack.top
 	newfields.length = testStack.length
 	tests := []struct {
@@ -50,7 +50,7 @@ func TestStack_Length(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			s := &Stack{
-				node:   tt.fields.node,
+				nodes:  tt.fields.nodes,
 				top:    tt.fields.top,
 				length: tt.fields.length,
 			}
@@ -63,7 +63,7 @@ func TestStack_Length(t *testing.T) {
 
 func TestStack_Pop(t *testing.T) {
 	type fields struct {
-		node   node
+		nodes  []node
 		top    *node
 		length int
 	}
@@ -72,7 +72,7 @@ func TestStack_Pop(t *testing.T) {
 	testStack.Push("Random Data")
 	// creating new fields
 	newfields := new(fields)
-	newfields.node = testStack.node
+	newfields.nodes = testStack.nodes
 	newfields.top = testStack.top
 	newfields.length = testStack.length
 
@@ -94,7 +94,7 @@ func TestStack_Pop(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			s := &Stack{
-				node:   tt.fields.node,
+				nodes:  tt.fields.nodes,
 				top:    tt.fields.top,
 				length: tt.fields.length,
 			}
@@ -107,7 +107,7 @@ func TestStack_Pop(t *testing.T) {
 
 func TestStack_Push(t *testing.T) {
 	type fields struct {
-		node   node
+		nodes  []node
 		top    *node
 		length int
 	}
@@ -118,7 +118,7 @@ func TestStack_Push(t *testing.T) {
 	testStack := NewStack()
 	// creating new fields
 	newfields := new(fields)
-	newfields.node = testStack.node
+	newfields.nodes = testStack.nodes
 	newfields.top = testStack.top
 	newfields.length = testStack.length
 	// Pushing the data to the stack
@@ -136,7 +136,7 @@ func TestStack_Push(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			s := &Stack{
-				node:   tt.fields.node,
+				nodes:  tt.fields.nodes,
 				top:    tt.fields.top,
 				length: tt.fields.length,
 			}
@@ -150,7 +150,7 @@ func TestStack_Push(t *testing.T) {
 
 func TestStack_Top(t *testing.T) {
 	type fields struct {
-		node   node
+		nodes  []node
 		top    *node
 		length int
 	}
@@ -159,7 +159,7 @@ func TestStack_Top(t *testing.T) {
 	testStack.Push("Random Data")
 	// creating new fields
 	newfields := new(fields)
-	newfields.node = testStack.node
+	newfields.nodes = testStack.nodes
 	newfields.top = testStack.top
 	newfields.length = testStack.length
 	// creating empty fields
@@ -178,7 +178,7 @@ func TestStack_Top(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			s := &Stack{
-				node:   tt.fields.node,
+				nodes:  tt.fields.nodes,
 				top:    tt.fields.top,
 				length: tt.fields.length,
 			}
@@ -191,7 +191,7 @@ func TestStack_Top(t *testing.T) {
 
 func TestStack_IsEmpty(t *testing.T) {
 	type fields struct {
-		node   node
+		nodes  []node
 		top    *node
 		length int
 	}
@@ -200,7 +200,7 @@ func TestStack_IsEmpty(t *testing.T) {
 	testStack.Push("Random Data")
 	// creating new fields
 	newfields := new(fields)
-	newfields.node = testStack.node
+	newfields.nodes = testStack.nodes
 	newfields.top = testStack.top
 	newfields.length = testStack.length
 	// creating empty fields
@@ -217,7 +217,7 @@ func TestStack_IsEmpty(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			s := &Stack{
-				node:   tt.fields.node,
+				nodes:  tt.fields.nodes,
 				top:    tt.fields.top,
 				length: tt.fields.length,
 			}

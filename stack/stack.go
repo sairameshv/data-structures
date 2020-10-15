@@ -10,7 +10,7 @@ type node struct {
 
 // Stack refers to the Stack (LIFO/FILO) data structure.
 type Stack struct {
-	node
+	nodes []node
 	// previous refers to the pointer reference to the previous node present in the stack
 	top *node
 	// length refers to the number of nodes present in the stack
@@ -24,30 +24,32 @@ func NewStack() *Stack {
 }
 
 // Length returns the number of nodes present in the stack
-func(s *Stack) Length() int {
+func (s *Stack) Length() int {
 	return s.length
 }
 
 // Pop deletes the top node from the stack and returns the popped out node's value
-func(s *Stack) Pop() interface{} {
+func (s *Stack) Pop() interface{} {
 	if s.length == 0 {
 		return nil
 	}
 	topNode := s.top
-	s.top = s.node.reference
+	s.top = topNode.reference
+	s.nodes = s.nodes[:s.length-1]
 	s.length--
 	return topNode.data
 }
 
 // Push adds a new node to the existing stack
-func(s *Stack) Push(data interface{}) {
-	s.node = node{data, s.top}
-	s.top = &s.node
+func (s *Stack) Push(data interface{}) {
+	newNode := node{data, s.top}
+	s.nodes = append(s.nodes, newNode)
+	s.top = &newNode
 	s.length++
 }
 
 // Top returns the data value that is stored on top node of the stack
-func(s * Stack) Top() interface{} {
+func (s *Stack) Top() interface{} {
 	if s.length == 0 {
 		return nil
 	}
@@ -55,7 +57,7 @@ func(s * Stack) Top() interface{} {
 }
 
 // IsEmpty returns a true if the stack is empty and false otherwise.
-func(s *Stack) IsEmpty() bool {
+func (s *Stack) IsEmpty() bool {
 	if s.length == 0 {
 		return true
 	}
