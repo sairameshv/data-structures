@@ -29,6 +29,7 @@ func isValidInput(input string) bool {
 
 // IsBalancedParantheses validates if the provided input sequence of parantheses is balanced
 // and returns a boolean accordingly
+// Valid sample inputs could be "{((])(}", "[]()((}}))", etc.
 func IsBalancedParantheses(input string) bool {
 	if !isValidInput(input) {
 		log.Printf("Invalid Input: %v", input)
