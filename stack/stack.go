@@ -11,7 +11,7 @@ type node struct {
 // Stack refers to the Stack (LIFO/FILO) data structure.
 type Stack struct {
 	nodes []node
-	// previous refers to the pointer reference to the previous node present in the stack
+	// top refers to the pointer reference to the top node present in the stack
 	top *node
 	// length refers to the number of nodes present in the stack
 	length int
